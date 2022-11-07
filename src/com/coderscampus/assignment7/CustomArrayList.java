@@ -32,6 +32,16 @@ public class CustomArrayList<T> implements CustomList<T> {
         return customArray;
     }
  
+	private int getLength() {
+		// TODO Auto-generated method stub
+		//return customArray.length;
+		int count = 0;
+		  for (Object obj : customArray) {
+		    if ( obj != null ) count++;
+		  }
+		  return count;
+	}
+       
     /**
      * 
      * @param object - the element being added
@@ -53,12 +63,8 @@ public class CustomArrayList<T> implements CustomList<T> {
 	
 	@Override
 	public boolean add(int index, T item) throws IndexOutOfBoundsException{
-		// TODO Auto-generated method stub
-		int count = 0;
-		  for (Object obj : customArray) {
-		    if ( obj != null ) count++;
-		  }
-	    if ((index < 0 || index >= this.customArray.length || index >= count) && index!=0) {
+
+	    if ((index < 0 || index >= this.customArray.length || index >= getLength()) && index!=0) {
 	        // FYI, this would be thrown anyway; not sure if you need to do it
 	        throw new IndexOutOfBoundsException();
 	    }
@@ -116,11 +122,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	}
 	
 	public T remove(int index) throws IndexOutOfBoundsException {
-		int count = 0;
-		  for (Object obj : customArray) {
-		    if ( obj != null ) count++;
-		  }
-	    if (index < 0 || index >= this.customArray.length || index>=count) {
+	    if (index < 0 || index >= this.customArray.length || index>=getLength()) {
 	        throw new IndexOutOfBoundsException();
 	    }
 	    Object removed = this.customArray[index];
