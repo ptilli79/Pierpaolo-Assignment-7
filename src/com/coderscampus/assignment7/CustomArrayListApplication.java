@@ -53,6 +53,11 @@ public class CustomArrayListApplication {
 		
 		System.out.println("Resulting size when adding "+i+" ramdom elements (by index): "+ customArray.getSize());
 		printArrayListToConsole(customArray);
+		
+		customArray.add("XXX");
+		System.out.println("Add one last item through add(T item) [without index)]: "+ customArray.getSize());
+		printArrayListToConsole(customArray);
+		
 	}
 	
 	//Print customArray
