@@ -28,7 +28,7 @@ class CustomArrayListTest {
 	}
 	
 	@Test
-	void should_rmv_one_item_from_list_based_on_index () {
+	void should_remove_one_item_from_list_based_on_index () {
 		// Arrange
 		CustomList<Integer> sut = new CustomArrayList<>();
 		
@@ -46,7 +46,7 @@ class CustomArrayListTest {
 	}
 	
 	@Test
-	void should_return_index_out_of_bounds_when_trying_to_remove_by_wrong_idex () {
+	void should_return_index_out_of_bounds_when_removing_by_wrong_idex () {
 		// Arrange
 		CustomList<Integer> sut = new CustomArrayList<>();
 		String tmp=null;
@@ -69,7 +69,7 @@ class CustomArrayListTest {
 	}
 	
 	@Test
-	void should_return_index_out_of_bounds_when_trying_to_remove_any_item_from_empty_list () {
+	void should_return_index_out_of_bounds_when_removing_any_item_from_empty_list () {
 		// Arrange
 		CustomList<Integer> sut = new CustomArrayList<>();
 		String tmp=null;
@@ -90,7 +90,7 @@ class CustomArrayListTest {
 	}
 	
 	@Test
-	void should_return_index_out_of_bounds_when_trying_add_item_by_invalid_index () {
+	void should_return_index_out_of_bounds_when_adding_item_by_invalid_index () {
 		// Arrange
 		CustomList<Integer> sut = new CustomArrayList<>();
 		String tmp=null;
@@ -111,6 +111,36 @@ class CustomArrayListTest {
 		// Assert
 		assertEquals(0, sut.getSize()-initialSize);
 		assertEquals("Index out of bounds.", tmp);
+	}
+	
+	
+	@Test
+	void should_return_index_out_of_bounds_when_getting_by_invalid_index () {
+		// Arrange
+		CustomList<Integer> sut = new CustomArrayList<>();
+		String tmp1=null;
+		String tmp2=null;
+		
+		// Act
+		for (int i=0; i<10; i++) {
+			sut.add(i);
+		}
+		
+		try {
+			sut.get(10);
+		}catch (IndexOutOfBoundsException expected) {
+			tmp1="Index out of bounds.";	
+		}
+		
+		try {
+			sut.get(-1);
+		}catch (IndexOutOfBoundsException expected) {
+			tmp2="Index out of bounds.";	
+		}
+		
+		// Assert
+		assertEquals("Index out of bounds.", tmp1);
+		assertEquals("Index out of bounds.", tmp2);
 	}
 	
 	@Test
@@ -145,6 +175,8 @@ class CustomArrayListTest {
 		assertEquals(1, sut.getSize()-initialSize);
 		assertEquals(10, sut.get(sut.getSize()-1));
 	}
+	
+	
 	
 
 }

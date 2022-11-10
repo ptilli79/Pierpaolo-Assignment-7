@@ -32,8 +32,6 @@ public class CustomArrayListApplication {
             customArray.remove(random.nextInt(customArray.getSize()));
 			}catch (IllegalArgumentException expected){
 			}
-			
-			
         }
 		
 		System.out.println("Resulting size when removing "+i+" ramdom elements (by index): "+ customArray.getSize());
@@ -58,6 +56,7 @@ public class CustomArrayListApplication {
 		System.out.println("Add one last item through add(T item) [without index)]: "+ customArray.getSize());
 		printArrayListToConsole(customArray);
 		
+		System.out.println(customArray.get(11));
 	}
 	
 	//Print customArray

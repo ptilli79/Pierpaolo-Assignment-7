@@ -111,7 +111,8 @@ public class CustomArrayList<T> implements CustomList<T> {
 	// method to get elements from Custom Array List
 	@Override
 	public T get(int index) throws IndexOutOfBoundsException{
-		if (index < 0 || index >= this.customArray.length) {
+		//if (index < 0 || index >= this.customArray.length) {
+		if (index < 0 || index >= this.customArray.length || index >= getLength()) {
 	        // FYI, this would be thrown anyway; not sure if you need to do it
 	        throw new IndexOutOfBoundsException();
 	    }
